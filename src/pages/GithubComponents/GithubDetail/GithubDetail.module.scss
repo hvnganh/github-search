@@ -1,0 +1,133 @@
+.wrapper {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: var(--white);
+}
+
+.github-wrapper {
+    width: 1264px;
+    display: flex;
+    border-left: 1px solid #d1d8df;
+    border-right: 1px solid #d1d8df;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.col {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.c-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+}
+
+.c-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.c-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.githubdetail-wrapper {
+    margin-top: 20px;
+
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.githubdetail {
+    width: 400px;
+    height: 100px;
+    border: 1px solid #d1d8df;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.infor {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.name-wrapper {
+    margin: 10px 0;
+}
+
+.name {
+    font-weight: 300;
+    color: #858c93;
+}
+
+.img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #d1d8df;
+}
+
+.wrapper-repodetail {
+    color: var(--header-color);
+    font-size: 1.3rem;
+    height: 100%;
+}
+
+.repos-info-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.line-1 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    height: calc(100% / 2);
+}
+
+.line-2 {
+    display: flex;
+    align-items: center;
+    height: calc(100% / 2);
+}
+
+.repo-name {
+    color: #0969da;
+    line-height: 20px;
+}
+
+.repo-visibility {
+    line-height: 20px;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0 6px;
+    border: 1px solid #d9dfe5;
+    border-radius: 10px;
+}
+
+.icon {
+    margin-right: 2px;
+}
+
+.language {
+    text-transform: capitalize;
+    margin-bottom: 0;
+    font-weight: 100;
+}

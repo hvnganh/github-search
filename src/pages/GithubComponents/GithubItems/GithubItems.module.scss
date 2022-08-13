@@ -1,0 +1,138 @@
+.wrapper {
+    width: 100%;
+}
+
+.wrapper-card {
+    overflow: hidden;
+    box-shadow: 5px -5px 5px rgba(237, 237, 237, 0.06);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 350px;
+    height: 350px;
+    margin: 20px 0;
+    transform: translateY(-5px) scale(1) translateZ(0px);
+    &:hover {
+        transform: translateY(-5px) scale(1.1) translateZ(0px);
+    }
+}
+
+.github-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.github-item {
+    max-width: 33.33333%;
+}
+
+.github-user {
+    height: 100%;
+}
+
+.img-wrapper {
+    background-color: var(--white);
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.infor {
+    height: 30%;
+    background-color: rgba(237, 237, 237, 0.09);
+}
+
+.img {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // border-radius: 50%;
+}
+
+.name-wrapper {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 10px 0 10px;
+}
+
+.name {
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.github-urls {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 10px 0 10px;
+}
+
+.github-url {
+    padding-left: 5px;
+    font-size: 1.6rem;
+    color: var(--white);
+    &:hover {
+        color: rgba(#1a94ff, 1);
+        text-decoration: underline;
+    }
+}
+
+.link-repos {
+    height: calc(100% / 3);
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+}
+
+.link {
+    font-size: 1.8rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-repo {
+    padding-left: 5px;
+    padding-bottom: 3px;
+    margin-right: 10px;
+    font-size: 1.6rem;
+    &:hover {
+        color: rgba(#1a94ff, 1);
+        text-decoration: underline;
+    }
+}
+
+.icon-repo {
+    font-size: 1.6rem;
+    &:hover {
+        color: rgba(#1a94ff, 1);
+        text-decoration: underline;
+    }
+}
+
+.icon {
+    font-size: 1.6rem;
+}
+
+// ------------------------
+
+.no-user {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 100%;
+    background-color: var(--white);
+}
+
+.img-no-data {
+    user-select: none;
+    -webkit-user-select: none;
+}

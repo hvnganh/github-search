@@ -1,0 +1,22 @@
+.wrapper {
+    background-color: var(--header-color);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 4rem;
+    color: var(--white);
+    &:hover {
+        background-color: transparent;
+        color: rgba($color: #ccc, $alpha: 0.9);
+    }
+}
