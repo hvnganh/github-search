@@ -33,8 +33,6 @@ function GithubItems() {
         fetchApi();
     }, [debounceData, currentPage]);
 
-    console.log(information);
-
     const handlePrevious = () => {
         setCurrentPage((state) => state - 1);
     };
