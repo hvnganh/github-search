@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function GithubCard(props) {
-    const { name, avatar, linkGithub, repos_url } = props;
+    const { name, avatar, linkGithub } = props;
 
     return (
         <div className={cx('wrapper-card')}>
@@ -26,12 +26,12 @@ function GithubCard(props) {
                             {linkGithub}
                         </a>
                     </div>
-                    <Link to={`/${name}/repos`}>
+                    <Link id="RouterNavLink" to={`/${name}/repos`}>
                         <div className={cx('link-repos')}>
-                            <a className={cx('link')} href={repos_url}>
+                            <div className={cx('link')}>
                                 <FontAwesomeIcon className={cx('icon-repo')} icon={faLink} />
                                 <h3 className={cx('view-repo')}>View Repos</h3>
-                            </a>
+                            </div>
                         </div>
                     </Link>
                 </div>

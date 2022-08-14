@@ -12,13 +12,16 @@ function GithubItems() {
     const inputText = useContext(SearchContext);
     const [information, setInformation] = useState([]);
     const [isLoading, startTransition] = useTransition();
+    const [currentPage, setCurrentPage] = useState(1);
 
     const debounceData = useDebounce(inputText, 500);
 
     useEffect(() => {
         const fetchApi = async () => {
             try {
-                const response = await request.get(`/search/users?q=${debounceData ? debounceData : {}}&page=1`);
+                const response = await request.get(
+                    `/search/users?q=${debounceData ? debounceData : {}}&page=${currentPage}`,
+                );
                 const datas = await response.data.items;
                 startTransition(() => {
                     setInformation(datas);
@@ -28,20 +31,17 @@ function GithubItems() {
             }
         };
         fetchApi();
-    }, [debounceData]);
+    }, [debounceData, currentPage]);
 
     console.log(information);
 
-    const handleScroll = (e) => {};
+    const handlePrevious = () => {
+        setCurrentPage((state) => state - 1);
+    };
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
-    console.log(information);
+    const handleNext = () => {
+        setCurrentPage((state) => state + 1);
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -55,7 +55,6 @@ function GithubItems() {
                                 name={data.login}
                                 avatar={data.avatar_url}
                                 linkGithub={data.html_url}
-                                repos_url={data.repos_url}
                                 node_id={data.node_id}
                             />
                         </div>
@@ -69,6 +68,21 @@ function GithubItems() {
                         />
                     </div>
                 )}
+            </div>
+            <div className={cx('paginate')}>
+                {currentPage === 1 ? (
+                    <button className={cx('btn-paginate', 'btn-disabled')} disabled onClick={handlePrevious}>
+                        Previous
+                    </button>
+                ) : (
+                    <button className={cx('btn-paginate')} onClick={handlePrevious}>
+                        Previous
+                    </button>
+                )}
+                <h1 className={cx('page-number')}>{currentPage}</h1>
+                <button className={cx('btn-paginate')} onClick={handleNext}>
+                    Next
+                </button>
             </div>
         </div>
     );

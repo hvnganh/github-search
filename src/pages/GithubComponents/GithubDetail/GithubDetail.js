@@ -8,7 +8,7 @@ import request from '~/apis/request';
 const cx = classNames.bind(styles);
 
 function GithubDetail(props) {
-    const { name, visibility, nameUser } = props;
+    const { name, visibility, nameUser, html_url } = props;
     const [language, setLanguage] = useState('');
 
     useEffect(() => {
@@ -25,7 +25,9 @@ function GithubDetail(props) {
             <div className={cx('repos-info-wrapper')}>
                 <div className={cx('line-1')}>
                     <div className={cx('repo-name-wrapper')}>
-                        <h4 className={cx('repo-name')}>{name}</h4>
+                        <a className={cx('repo-link')} href={html_url} target="_blank" rel="noreferrer">
+                            <h4 className={cx('repo-name')}>{name}</h4>
+                        </a>
                     </div>
                     <div className={cx('repo-visibility-wrapper')}>
                         <p className={cx('repo-visibility')}>{visibility}</p>

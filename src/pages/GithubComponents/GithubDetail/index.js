@@ -53,6 +53,7 @@ function GithubDetails() {
                             <div key={repo.id} className={cx('col c-6')}>
                                 <div className={cx('githubdetail')}>
                                     <GithubDetail
+                                        html_url={repo.html_url}
                                         name={repo.name}
                                         visibility={repo.visibility}
                                         nameUser={repo.owner.login}
