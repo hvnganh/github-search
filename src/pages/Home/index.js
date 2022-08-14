@@ -29,6 +29,7 @@ function Home() {
                                 placeholder="Search or jump to..."
                             />
                         </div>
+
                         <div className={cx('icon-wrapper')}>
                             <FontAwesomeIcon className={cx('icon-search')} icon={faSearch} />
                         </div>

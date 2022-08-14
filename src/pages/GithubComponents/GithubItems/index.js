@@ -69,21 +69,25 @@ function GithubItems() {
                     </div>
                 )}
             </div>
-            <div className={cx('paginate')}>
-                {currentPage === 1 ? (
-                    <button className={cx('btn-paginate', 'btn-disabled')} disabled onClick={handlePrevious}>
-                        Previous
+            {information.length >= 1 ? (
+                <div className={cx('paginate')}>
+                    {currentPage === 1 ? (
+                        <button className={cx('btn-paginate', 'btn-disabled')} disabled onClick={handlePrevious}>
+                            Previous
+                        </button>
+                    ) : (
+                        <button className={cx('btn-paginate')} onClick={handlePrevious}>
+                            Previous
+                        </button>
+                    )}
+                    <h1 className={cx('page-number')}>{currentPage}</h1>
+                    <button className={cx('btn-paginate')} onClick={handleNext}>
+                        Next
                     </button>
-                ) : (
-                    <button className={cx('btn-paginate')} onClick={handlePrevious}>
-                        Previous
-                    </button>
-                )}
-                <h1 className={cx('page-number')}>{currentPage}</h1>
-                <button className={cx('btn-paginate')} onClick={handleNext}>
-                    Next
-                </button>
-            </div>
+                </div>
+            ) : (
+                ''
+            )}
         </div>
     );
 }
