@@ -1,10 +1,11 @@
 import GithubCard from './GithubCard';
 import classNames from 'classnames/bind';
 import styles from './GithubItems.module.scss';
-import { useContext, useEffect, useState, useTransition } from 'react';
 import request from '~/apis/request';
+import { useContext, useEffect, useState, useTransition } from 'react';
 import { SearchContext } from '~/pages/Context/SearchContext';
 import { useDebounce } from '~/hooks';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const cx = classNames.bind(styles);
 
@@ -33,13 +34,19 @@ function GithubItems() {
         fetchApi();
     }, [debounceData, currentPage]);
 
-    const handlePrevious = () => {
-        setCurrentPage((state) => state - 1);
-    };
+    // const fetchApiGithub = async () => {
+    //     const response = await request.get(`/search/users?q=${debounceData ? debounceData : {}}`);
+    //     const datas = await response.data.items;
+    //     setInformation(datas);
+    // };
 
-    const handleNext = () => {
-        setCurrentPage((state) => state + 1);
-    };
+    // const handlePrevious = () => {
+    //     setCurrentPage((state) => state - 1);
+    // };
+
+    // const handleNext = () => {
+    //     setCurrentPage((state) => state + 1);
+    // };
 
     return (
         <div className={cx('wrapper')}>
@@ -47,16 +54,23 @@ function GithubItems() {
                 {isLoading ? (
                     <p>Loading...</p>
                 ) : information.length >= 1 ? (
-                    information.map((data) => (
-                        <div className={cx('github-item')} key={data.id}>
-                            <GithubCard
-                                name={data.login}
-                                avatar={data.avatar_url}
-                                linkGithub={data.html_url}
-                                node_id={data.node_id}
-                            />
-                        </div>
-                    ))
+                    <InfiniteScroll
+                        className={cx('github-items')}
+                        dataLength={information.length}
+                        next={() => setCurrentPage(currentPage + 1)}
+                        hasMore={true}
+                    >
+                        {information.map((data) => (
+                            <div key={data.id} className={cx('github-item')}>
+                                <GithubCard
+                                    name={data.login}
+                                    avatar={data.avatar_url}
+                                    linkGithub={data.html_url}
+                                    node_id={data.node_id}
+                                />
+                            </div>
+                        ))}
+                    </InfiniteScroll>
                 ) : (
                     <div className={cx('no-user')}>
                         <img
@@ -67,7 +81,7 @@ function GithubItems() {
                     </div>
                 )}
             </div>
-            {information.length >= 1 ? (
+            {/* {information.length >= 1 ? (
                 <div className={cx('paginate')}>
                     {currentPage === 1 ? (
                         <button className={cx('btn-paginate', 'btn-disabled')} disabled onClick={handlePrevious}>
@@ -85,7 +99,7 @@ function GithubItems() {
                 </div>
             ) : (
                 ''
-            )}
+            )} */}
         </div>
     );
 }
